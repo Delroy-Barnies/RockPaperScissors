@@ -1,4 +1,3 @@
-
 function getComputerChoice(){
 
     let options = ["rock", "paper", "scissors"];
@@ -37,6 +36,7 @@ function startRound(playerSelection, computerSelection){
     }
 }
 
+/* main function for starting the game */ 
 function game(){
 
     let playerScore = 0;
