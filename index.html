@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JanKen</title>
+    <title>JanKen!</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,10 +16,10 @@
 <body>
 
     <div id="head">
-        <h1>JanKen! please save us from the evil emperor!</h1>
-        <h3>You young master lee. Son of the late emperor Ji challenge your uncle, the cruel and merciless<br />
+        <h1>JanKen! please save us from the evil Emperor!</h1>
+        <h3>You, young master Lee. Son of the late Emperor Ji challenge your uncle, the cruel and merciless<br />
             overlord Ti to a game of JanKen (rock-paper-scissors). <br />
-            If you win he relinquishes his hold on the kingdom and steps down as its emperor, <br />
+            If you win he relinquishes his hold on the kingdom and steps down as its Emperor, <br />
             but beware because if the overlord wins he will most certainly have your head.
         </h3>
         <img src="images/914097_evil ,overlord ,emperor, face, black and white _xl-1024-v1-0.png" class="emperor">
@@ -28,15 +28,15 @@
     <div id="game_container">
         <div class="wpn_container">
             <div class="wpn_container_top">
-                <button class="wpn rock_btn"><img src="icons/2730260_harry_philosophers_potter_rock_solid_icon.svg">
+                <button id="player_rock" class="wpn rock_btn"><img src="icons/2730260_harry_philosophers_potter_rock_solid_icon.svg">
                     <div class="tooltip">Ishi (Rock)</div>
                 </button>
             </div>
             <div class="wpn_container_btm">
-                <button class="wpn paper_btn"><img src="icons/9024013_scroll_fill_icon.svg">
+                <button id="player_paper" class="wpn paper_btn"><img src="icons/9024013_scroll_fill_icon.svg">
                     <div class="tooltip">Kami (Paper)</div>
                 </button>
-                <button class="wpn scissors_btn"><img src="icons/326596_content_cut_scissors_icon.svg">
+                <button id="player_scissors" class="wpn scissors_btn"><img src="icons/326596_content_cut_scissors_icon.svg">
                     <div class="tooltip"> Hasami (Scissors)</div>
                 </button>
             </div>
@@ -45,31 +45,31 @@
         <div class="score_container">
             <div class="score_container_top">
                 <div class="score player_container">
-                    <p>1</p>
+                    <p class="player_score"></p>
                 </div>
 
                 <div class="score emperor_container">
-                    <p>0</p>
+                    <p class="emperor_score"></p>
                 </div>
             </div>
             <div class="score_container_btm">
                 <div class="score results_container">
-                    <p>you win</p>
+                    <p class = "results"></p>
                 </div>
             </div>
         </div>
 
         <div class="wpn_container">
             <div class="wpn_container_top">
-                <button class="wpn rock_btn"><img src="icons/2730260_harry_philosophers_potter_rock_solid_icon.svg">
+                <button class="wpn rock_btn computer_rock"><img src="icons/2730260_harry_philosophers_potter_rock_solid_icon.svg">
                     <div class="tooltip">Ishi (Rock)</div>
                 </button>
             </div>
             <div class="wpn_container_btm">
-                <button class="wpn paper_btn"><img src="icons/9024013_scroll_fill_icon.svg">
+                <button class="wpn paper_btn computer_paper"><img src="icons/9024013_scroll_fill_icon.svg">
                     <div class="tooltip">Kami (Paper)</div>
                 </button>
-                <button class="wpn scissors_btn"><img src="icons/326596_content_cut_scissors_icon.svg">
+                <button class="wpn scissors_btn computer_scissors"><img src="icons/326596_content_cut_scissors_icon.svg">
                     <div class="tooltip"> Hasami (Scissors)</div>
                 </button>
             </div>

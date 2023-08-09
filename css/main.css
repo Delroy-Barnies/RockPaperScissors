@@ -86,6 +86,7 @@ body{
 .score_container_top{
     display: flex;
     justify-content: space-around;
+    height: 140px;
 }
 
 .score_container_btm{

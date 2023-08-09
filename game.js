@@ -1,94 +1,208 @@
-function getComputerChoice(){
+function getComputerChoice() {
 
     let options = ["rock", "paper", "scissors"];
     let randomNumber = Math.floor(Math.random() * options.length);
     return options[randomNumber];
 }
 
-function startRound(playerSelection, computerSelection){
+function displayComputerChoice(computerChoice) {
 
-    if (playerSelection == "rock" && computerSelection == "scissors"){
-        return "you win this round, rock beats scissors!";
+    if (computerChoice == "rock") {
+        let displayComputerPick = document.querySelector('.computer_rock');
+        displayComputerPick.setAttribute('style', 'background: red;');
+    }
+    else if (computerChoice == "scissors") {
+        let displayComputerPick = document.querySelector('.computer_scissors');
+        displayComputerPick.setAttribute('style', 'background: red;');
+    }
+    else {
+        let displayComputerPick = document.querySelector('.computer_paper');
+        displayComputerPick.setAttribute('style', 'background: red;');
+    }
+}
+
+function resetComputerColors() {
+    let displayComputerRock = document.querySelector('.computer_rock');
+    displayComputerRock.setAttribute('style', 'background: white;');
+
+    let displayComputerPaper = document.querySelector('.computer_paper');
+    displayComputerPaper.setAttribute('style', 'background: white;');
+
+    let displayComputerScissors = document.querySelector('.computer_scissors');
+    displayComputerScissors.setAttribute('style', 'background: white;');
+}
+
+function resetPlayerColors() {
+    let playerRock = document.getElementById('player_rock')
+    playerRock.setAttribute('style', 'background: white;');
+
+    let playerPaper = document.getElementById('player_paper')
+    playerPaper.setAttribute('style', 'background: white;');
+
+    let playerScissors = document.getElementById('player_scissors')
+    playerScissors.setAttribute('style', 'background: white;');
+}
+
+function startRound(playerSelection, computerSelection) {
+
+    if (playerSelection == "rock" && computerSelection == "scissors") {
+        return "you win this round, Ishi beats Hasami!";
     }
 
-    else if (playerSelection == "paper" && computerSelection == "rock"){
-        return "you win this round, paper beats rock!";
+    else if (playerSelection == "paper" && computerSelection == "rock") {
+        return "you win this round, Kami beats Ishi!";
     }
 
-    else if (playerSelection == "scissors" && computerSelection == "paper"){
-        return "you win this round, scissors beats paper!";
+    else if (playerSelection == "scissors" && computerSelection == "paper") {
+        return "you win this round, Hasami beats Kami!";
     }
 
-    else if (computerSelection == "rock" && playerSelection == "scissors"){
-        return "computer wins this round, rock beats scissors!";
+    else if (computerSelection == "rock" && playerSelection == "scissors") {
+        return "Emperor wins this round, Ishi beats Hasami!";
     }
 
-    else if (computerSelection == "paper" && playerSelection == "rock"){
-        return "computer wins this round, paper beats rock!";
+    else if (computerSelection == "paper" && playerSelection == "rock") {
+        return "Emperor wins this round, Kami beats Ishi!";
     }
 
-    else if (computerSelection == "scissors" && playerSelection == "paper"){
-        return "computer wins this round, scissors beats paper!";
+    else if (computerSelection == "scissors" && playerSelection == "paper") {
+        return "Emperor wins this round, Hasami beats Kami!";
     }
 
-    else{
+    else {
         return "It's a tie!";
     }
 }
 
-/* main function for starting the game */ 
-function game(){
+// main function for starting the game 
+function game() {
 
     let playerScore = 0;
     let computerScore = 0;
+    let resultsMessage = document.querySelector('.results');
+    let displayPlayerScore = document.querySelector('.player_score');
+    let displayComputerScore = document.querySelector('.emperor_score');
 
-    for(let i = 0; i < 5; i++){
 
-        let playerChoice =  prompt("Enter your weapon of choice (rock, paper or scissors)")
-        playerChoice = playerChoice.toLowerCase();
+    let playerRock = document.getElementById('player_rock').onclick = function () {
 
-        while (!(playerChoice =="rock" || playerChoice == "paper" || playerChoice == "scissors")){
-            playerChoice =  prompt("please enter a correct option (rock, paper or scissors)");
-        }  
+        resetComputerColors();
+        resetPlayerColors();
+        let computerChoice = getComputerChoice();
+        let roundWinner = startRound('rock', computerChoice);
+        this.setAttribute('style', 'background: blue');
+        displayComputerChoice(computerChoice);
 
-        let roundWinner = startRound(playerChoice, getComputerChoice());
-        console.log(roundWinner);
+        resultsMessage.textContent = roundWinner;
+        resultsMessage.setAttribute('style', 'font-size: 30px; width: 200px;')
+
         playerScore += updatePlayerScore(roundWinner, playerScore);
         computerScore += updateComputerScore(roundWinner, computerScore);
 
-        console.log(playerScore);
-        console.log(computerScore);
+        displayPlayerScore.textContent = playerScore;
+        displayComputerScore.textContent = computerScore;
+
+        if (playerScore == 5 || computerScore == 5) {
+            let winner = checkForWinner(playerScore, computerScore);
+            resultsMessage.textContent = winner;
+            resultsMessage.setAttribute('style', 'font-size: 30px; width: 200px;');
+
+            playerScore = 0;
+            computerScore = 0;
+        }
+
     }
 
-    if(playerScore > computerScore){
-        return "you win!";
+    let playerScissors = document.getElementById('player_scissors').onclick = function () {
+
+        resetPlayerColors();
+        resetComputerColors();
+        let computerChoice = getComputerChoice();
+        let roundWinner = startRound('scissors', computerChoice);
+        this.setAttribute('style', 'background: blue');
+        displayComputerChoice(computerChoice);
+
+        resultsMessage.textContent = roundWinner;
+        resultsMessage.setAttribute('style', 'font-size: 30px; width: 200px;')
+        playerScore += updatePlayerScore(roundWinner, playerScore);
+        computerScore += updateComputerScore(roundWinner, computerScore);
+
+        displayPlayerScore.textContent = playerScore;
+        displayComputerScore.textContent = computerScore;
+
+        if (playerScore == 5 || computerScore == 5) {
+            let winner = checkForWinner(playerScore, computerScore);
+            resultsMessage.textContent = winner;
+            resultsMessage.setAttribute('style', 'font-size: 30px; width: 200px;');
+
+            playerScore = 0;
+            computerScore = 0;
+        }
+
+
     }
-    else if(playerScore < computerScore){
-        return "computer wins!";
-    }
-    else{
-        return "It's a tie!";
+
+    let playerPaper = document.getElementById('player_paper').onclick = function () {
+
+        resetPlayerColors();
+        resetComputerColors();
+        let computerChoice = getComputerChoice();
+        let roundWinner = startRound('paper', computerChoice);
+        this.setAttribute('style', 'background: blue');
+        displayComputerChoice(computerChoice);
+
+        resultsMessage.textContent = roundWinner;
+        resultsMessage.setAttribute('style', 'font-size: 30px; width: 200px;')
+        playerScore += updatePlayerScore(roundWinner, playerScore);
+        computerScore += updateComputerScore(roundWinner, computerScore);
+
+        displayPlayerScore.textContent = playerScore;
+        displayComputerScore.textContent = computerScore;
+
+        if (playerScore == 5 || computerScore == 5) {
+            let winner = checkForWinner(playerScore, computerScore);
+            resultsMessage.textContent = winner;
+            resultsMessage.setAttribute('style', 'font-size: 30px; width: 200px;');
+
+            playerScore = 0;
+            computerScore = 0;
+        }
+
+
     }
 }
 
-function updatePlayerScore(roundWinner, playerScore){
+function checkForWinner(playerScore, computerScore) {
 
-    if(roundWinner == "you win this round, rock beats scissors!" || roundWinner == "you win this round, paper beats rock!" || 
-       roundWinner == "you win this round, scissors beats paper!"){
+    if (playerScore == 5 && computerScore < 5) {
+        return "You saved us all!";
+    }
+    if (computerScore == 5 && playerScore < 5) {
+        return "Oh no! Emperor wins. Who will save us now?";
+    }
+    if (playerScore == 5 && computerScore == 5) {
+        return "Its a tie?! Perhaps another game will decide this.";
+    }
+}
+
+function updatePlayerScore(roundWinner, playerScore) {
+
+    if (roundWinner == "you win this round, Ishi beats Hasami!" || roundWinner == "you win this round, Kami beats Ishi!" ||
+        roundWinner == "you win this round, Hasami beats Kami!") {
         return 1;
     }
-    else{
+    else {
         return 0;
     }
 }
 
-function updateComputerScore(roundWinner, computerScore){
+function updateComputerScore(roundWinner, computerScore) {
 
-    if(roundWinner == "computer wins this round, rock beats scissors!" || roundWinner == "computer wins this round, paper beats rock!" ||
-       roundWinner == "computer wins this round, scissors beats paper!"){
+    if (roundWinner == "Emperor wins this round, Ishi beats Hasami!" || roundWinner == "Emperor wins this round, Kami beats Ishi!" ||
+        roundWinner == "Emperor wins this round, Hasami beats Kami!") {
         return 1;
-                        }
-    else{
+    }
+    else {
         return 0;
     }
 }
