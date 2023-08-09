@@ -15,7 +15,7 @@ body{
 }
 
 #head h3{
-    font-size: 20px;
+    font-size: 1.3em;
 }
 
 .emperor{
@@ -54,7 +54,7 @@ body{
 }
 
 .wpn img{
-    width: 70px;
+    width: 5.4em;
 }
 
 .rock_btn{
@@ -76,7 +76,7 @@ body{
 
 .score{
     font-weight: bold;
-    font-size: 50px;
+    font-size: 3em;
 }
 
 .score_container{
@@ -103,15 +103,4 @@ body{
 
 .score_container_btm p{
     width: 180px;
-}
-
-
-
-/*
-.paper_btn{
-
-}
-
-.scissors_btn{
-
 }
