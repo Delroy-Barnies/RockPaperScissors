@@ -94,7 +94,7 @@ function game() {
         displayComputerChoice(computerChoice);
 
         resultsMessage.textContent = roundWinner;
-        resultsMessage.setAttribute('style', 'font-size: 30px; width: 200px;')
+        resultsMessage.setAttribute('style', 'font-size: 0.65em; width: 200px;')
 
         playerScore += updatePlayerScore(roundWinner, playerScore);
         computerScore += updateComputerScore(roundWinner, computerScore);
@@ -105,7 +105,7 @@ function game() {
         if (playerScore == 5 || computerScore == 5) {
             let winner = checkForWinner(playerScore, computerScore);
             resultsMessage.textContent = winner;
-            resultsMessage.setAttribute('style', 'font-size: 30px; width: 200px;');
+            resultsMessage.setAttribute('style', 'font-size: 0.65em; width: 200px;');
 
             playerScore = 0;
             computerScore = 0;
@@ -123,7 +123,7 @@ function game() {
         displayComputerChoice(computerChoice);
 
         resultsMessage.textContent = roundWinner;
-        resultsMessage.setAttribute('style', 'font-size: 30px; width: 200px;')
+        resultsMessage.setAttribute('style', 'font-size: 0.65em; width: 200px;')
         playerScore += updatePlayerScore(roundWinner, playerScore);
         computerScore += updateComputerScore(roundWinner, computerScore);
 
@@ -133,7 +133,7 @@ function game() {
         if (playerScore == 5 || computerScore == 5) {
             let winner = checkForWinner(playerScore, computerScore);
             resultsMessage.textContent = winner;
-            resultsMessage.setAttribute('style', 'font-size: 30px; width: 200px;');
+            resultsMessage.setAttribute('style', 'font-size: 0.65em; width: 200px;');
 
             playerScore = 0;
             computerScore = 0;
@@ -152,7 +152,7 @@ function game() {
         displayComputerChoice(computerChoice);
 
         resultsMessage.textContent = roundWinner;
-        resultsMessage.setAttribute('style', 'font-size: 30px; width: 200px;')
+        resultsMessage.setAttribute('style', 'font-size: 0.65em; width: 200px;')
         playerScore += updatePlayerScore(roundWinner, playerScore);
         computerScore += updateComputerScore(roundWinner, computerScore);
 
@@ -162,7 +162,7 @@ function game() {
         if (playerScore == 5 || computerScore == 5) {
             let winner = checkForWinner(playerScore, computerScore);
             resultsMessage.textContent = winner;
-            resultsMessage.setAttribute('style', 'font-size: 30px; width: 200px;');
+            resultsMessage.setAttribute('style', 'font-size: 0.65em; width: 200px;');
 
             playerScore = 0;
             computerScore = 0;
